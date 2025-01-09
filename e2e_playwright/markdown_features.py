@@ -156,7 +156,3 @@ st.container(key="st_image").image(
     np.repeat(0, 10000).reshape(100, 100), caption=selected_feature_markdown
 )
 st.container(key="st_progress").progress(0.5, selected_feature_markdown)
-
-# Invalid Markdown: table elements, headings, unordered/ordered lists, task lists, horizontal rules, & blockquotes
-# Valid Markdown: Bold, italics, strikethrough, code, & shortcodes/emojis/streamlit logo, images, colored text
-# Allowed in all but buttons: links
