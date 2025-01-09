@@ -150,16 +150,13 @@ def _do_with_retries(
 ) -> T:
     """Helper for retrying a function.
 
-    If the `exception` is raised, the function retries. If some other exception, this
-    re-raises it. Otherwise, the function is assumed to have worked so no further retries
-    take place.
+    Calls `orig_fn`. If `exception` is raised, retry.
 
-    To use it, just replace things like this:
+    To use this, just replace things like this...
 
         result = thing_to_do(a, b, c)
 
-
-    With this:
+    ...with this:
 
         result = _do_with_retries(
             lambda: thing_to_do(a, b, c),
@@ -172,6 +169,9 @@ def _do_with_retries(
         except exception:
             if i >= _MAX_RETRIES - 1:
                 raise
+            else:
+                # Continue with loop to either retry or raise MaxRetriesError.
+                pass
 
     raise MaxRetriesError("Unable to access file or folder.")
 
