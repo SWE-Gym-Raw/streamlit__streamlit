@@ -74,5 +74,6 @@ v9 = st.time_input(
 st.write("Value 9:", v9)
 
 st.time_input(
-    "Time input 10 -> :material/check: :rainbow[Fancy] _**markdown** `label` _support_"
+    "Time input 10 -> :material/check: :rainbow[Fancy] _**markdown** `label` _support_",
+    time(8, 45),
 )
