@@ -72,3 +72,7 @@ v9 = st.time_input(
     key="time_input_9",
 )
 st.write("Value 9:", v9)
+
+st.time_input(
+    "Time input 10 -> :material/check: :rainbow[Fancy] _**markdown** `label` _support_"
+)

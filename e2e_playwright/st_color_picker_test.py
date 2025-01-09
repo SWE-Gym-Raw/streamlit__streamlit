@@ -29,10 +29,14 @@ def test_color_picker_widget_display(
 ):
     """Test that st.color_picker renders correctly."""
     color_pickers = themed_app.get_by_test_id("stColorPicker")
-    expect(color_pickers).to_have_count(7)
-
-    for i in range(5):
-        assert_snapshot(color_pickers.nth(i), name=f"st_color_picker-{i}")
+    expect(color_pickers).to_have_count(8)
+    assert_snapshot(color_pickers.nth(0), name="st_color_picker-regular")
+    assert_snapshot(color_pickers.nth(1), name="st_color_picker-default_help")
+    assert_snapshot(color_pickers.nth(2), name="st_color_picker-disabled")
+    assert_snapshot(color_pickers.nth(3), name="st_color_picker-hidden_label")
+    assert_snapshot(color_pickers.nth(4), name="st_color_picker-collapsed_label")
+    # The other color pickers do not need to be snapshot tested.
+    assert_snapshot(color_pickers.nth(7), name="st_color_picker-in_fragment")
 
 
 def test_help_tooltip_works(app: Page):

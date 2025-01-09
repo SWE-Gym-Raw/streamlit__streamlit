@@ -232,3 +232,7 @@ st.image(
     caption=[f"Overflow {i}" for i in range(5)],
     width=200,
 )
+
+st.image(
+    img, caption="-> :material/check: :rainbow[Fancy] _**markdown** `label` _support_"
+)

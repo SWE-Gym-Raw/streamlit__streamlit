@@ -28,7 +28,7 @@ def test_number_input_widget_display(
 ):
     """Test that st.number_input renders correctly."""
     number_input_elements = themed_app.get_by_test_id("stNumberInput")
-    expect(number_input_elements).to_have_count(12)
+    expect(number_input_elements).to_have_count(13)
 
     assert_snapshot(number_input_elements.nth(0), name="st_number_input-default")
     assert_snapshot(number_input_elements.nth(1), name="st_number_input-value_1")
@@ -45,6 +45,9 @@ def test_number_input_widget_display(
     assert_snapshot(number_input_elements.nth(10), name="st_number_input-value_none")
     assert_snapshot(
         number_input_elements.nth(11), name="st_number_input-value_none_min_1"
+    )
+    assert_snapshot(
+        number_input_elements.nth(12), name="st_number_input-markdown_label"
     )
 
 

@@ -199,6 +199,11 @@ def test_image_list_overflow(app: Page, assert_snapshot: ImageCompareFunction):
     assert_snapshot(image_list, name="st_image-image_list_overflow")
 
 
+def test_markdown_caption_support(app: Page, assert_snapshot: ImageCompareFunction):
+    image_element = app.get_by_test_id("stImage").nth(12)
+    assert_snapshot(image_element, name="st_image-markdown_caption_support")
+
+
 def test_check_top_level_class(app: Page):
     """Check that the top level class is correctly set."""
     check_top_level_class(app, "stImage")

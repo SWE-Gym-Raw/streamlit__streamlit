@@ -69,9 +69,22 @@ def del_from_kth_multiselect(page: Page, option_text: str, k: int):
 def test_multiselect_on_load(themed_app: Page, assert_snapshot: ImageCompareFunction):
     """Should show widgets correctly when loaded."""
     multiselect_elements = themed_app.get_by_test_id("stMultiSelect")
-    expect(multiselect_elements).to_have_count(12)
-    for idx, el in enumerate(multiselect_elements.all()):
-        assert_snapshot(el, name="st_multiselect-" + str(idx))
+    expect(multiselect_elements).to_have_count(13)
+
+    assert_snapshot(multiselect_elements.nth(0), name="st_multiselect-placeholder_help")
+    assert_snapshot(multiselect_elements.nth(1), name="st_multiselect-format_func")
+    assert_snapshot(multiselect_elements.nth(2), name="st_multiselect-empty_list")
+    assert_snapshot(multiselect_elements.nth(3), name="st_multiselect-initial_value")
+    assert_snapshot(multiselect_elements.nth(4), name="st_multiselect-long_values")
+    assert_snapshot(multiselect_elements.nth(5), name="st_multiselect-disabled")
+    assert_snapshot(multiselect_elements.nth(6), name="st_multiselect-hidden_label")
+    assert_snapshot(multiselect_elements.nth(7), name="st_multiselect-collapsed_label")
+    assert_snapshot(multiselect_elements.nth(8), name="st_multiselect-max_selections_1")
+    assert_snapshot(
+        multiselect_elements.nth(9), name="st_multiselect-max_selections_in_form"
+    )
+    assert_snapshot(multiselect_elements.nth(11), name="st_multiselect-narrow_column")
+    assert_snapshot(multiselect_elements.nth(12), name="st_multiselect-markdown_label")
 
 
 def test_help_tooltip_works(app: Page):
